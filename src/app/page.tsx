@@ -1,103 +1,167 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-white text-gray-800">
+      {/* Intro Section */}
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <h1 className="text-5xl font-bold mb-4">
+          <span className="text-sky-400">My</span>DiabetiCare
+        </h1>
+        <p className="text-lg max-w-2xl">
+          An AI-powered comprehensive diabetes management app for Type I, Type II, and Prediabetes.
+          <br />Simplifying care, predicting risks, and empowering patients.
+        </p>
+        <Link href="#main" className="mt-6 inline-block px-6 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition">Explore</Link>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Navigation */}
+      <header className="bg-gray-100 shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <Link href="/" className="text-xl font-semibold">MyDiabetiCare</Link>
+          <nav>
+            <ul className="flex flex-wrap gap-4 text-sm">
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/login">Login/Sign Up</Link></li>
+              <li><Link href="/profile">My Profile</Link></li>
+              <li><a href="#features">Features</a></li>
+              <li><Link href="/glucoseMonitoring">Glucose Monitoring</Link></li>
+              <li><Link href="/diet+ExerciseTrack">Diet & Exercise Tracking</Link></li>
+              <li><Link href="https://kyle-muchipi.github.io/Telehealth/index.html" target="_blank">Telehealth</Link></li>
+              <li><Link href="/virtuadoc">VirtuaDoc</Link></li>
+              <li><Link href="/medManagement">Medication Management</Link></li>
+              <li><Link href="/ehrReports">Reports</Link></li>
+              <li><Link href="/educationResources">Education & Support</Link></li>
+              <li><Link href="/ehrReports">EHR Integration</Link></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </header>
+
+      {/* Main Content */}
+      <section id="main" className="px-4 max-w-7xl mx-auto">
+        {/* About */}
+        <div className="my-12 text-center">
+          <h2 className="text-3xl font-bold mb-4">Why MyDiabetiCare?</h2>
+          <p className="mb-6">
+            Over 38 million Americans live with diabetes, and 96 million have prediabetes. 75% don't manage it well, leading to costly complications.
+            <br />MyDiabetiCare changes that through smart, proactive care powered by AI.
+          </p>
+          <img
+            src="https://api.prd.lottie.org/images/An_old_couple_smiling_37fd0fe4e9.webp"
+            alt="MyDiabetiCare"
+            width={900}
+            height={600}
+            className="mx-auto rounded shadow"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        </div>
+
+        {/* Features */}
+        <section id="features" className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature) => (
+            <article key={feature.title} className="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src={feature.image} alt={feature.title} width={400} height={250} className="w-full h-60 object-cover" />
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="mb-4">{feature.description}</p>
+                <Link href={feature.link} className="inline-block px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition">
+                  Go
+                </Link>
+              </div>
+            </article>
+          ))}
+        </section>
+      </section>
+
+      {/* Contact Section */}
+      <footer id="contact" className="mt-20 bg-gray-100 py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+          <form className="space-y-4">
+            <div>
+              <label className="block mb-1">Name</label>
+              <input type="text" className="w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+              <label className="block mb-1">Email</label>
+              <input type="email" className="w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+              <label className="block mb-1">Message</label>
+              <textarea className="w-full border rounded px-3 py-2" rows={4}></textarea>
+            </div>
+            <button type="submit" className="bg-sky-500 text-white px-6 py-2 rounded hover:bg-sky-600 transition">Send Message</button>
+          </form>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="font-semibold">Address</h3>
+              <p>University of Arkansas at Pine Bluff<br />Pine Bluff, AR</p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Email</h3>
+              <p><a href="mailto:info@mydiabeticare.com" className="text-sky-500">info@mydiabeticare.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-10 text-sm text-gray-500">
+          &copy; MyDiabetiCare. Design adapted for: <Link href="https://bobo-creator.github.io/MyDiabetiCare/">MyDiabetiCare</Link>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
+
+const features = [
+  {
+    title: 'Real-time Glucose Monitoring',
+    image: 'https://www.datocms-assets.com/46938/1652177632-woman-with-continuous-glucose-monitor.jpeg',
+    description: 'Advanced, AI-driven Glucose Monitoring. Bluetooth enabled tracking with instant, easy-to-understand feedback.',
+    link: '/glucoseMonitoring',
+  },
+  {
+    title: 'Dietary & Exercise Tracking',
+    image: 'https://myprintablehome.com/wp-content/uploads/2020/12/Food-Journal-and-Exercise-Log-Featured-scaled.jpg',
+    description: 'AI-tailored exercise & meal recommendations that fit your lifestyle! Snap meals and get instant nutrition insights for smarter eating.',
+    link: '/diet+ExerciseTrack',
+  },
+  {
+    title: 'Medication Management',
+    image: 'https://www.scripps.org/sparkle-assets/images/managing_medications_1200x750-17004342529536848178.jpg',
+    description: 'Automated alerts remind users when to take medications and refill prescriptions, ensuring adherence to treatment plans.',
+    link: '/medManagement',
+  },
+  {
+    title: 'Reports & Insights',
+    image: 'https://content.strategicabm.com/hubfs/images/img-icon-product-insights-dark.png',
+    description: 'Get personalized summaries of how your weekly progress compares to your goals.',
+    link: '/ehrReports',
+  },
+  {
+    title: 'Virtual Assistant + TELEHEALTH',
+    image: '/images/virtualdoc.png',
+    description: 'Built-in AI virtual consultant offers education, answers questions, and connects users to telehealth services.',
+    link: 'https://kyle-muchipi.github.io/Telehealth/index.html',
+  },
+  {
+    title: 'EHR INTEGRATION',
+    image: '/images/ehr.png',
+    description: 'We securely connect to your doctor’s EHR system to streamline your health data sharing.',
+    link: '/ehrReports',
+  },
+  {
+    title: 'Education Resources & Community Support',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0NRHT2g0qFCgUmsZwWXlz4jRBAkBZDTa2gA&s',
+    description: 'Comprehensive diabetes education & peer support platform.',
+    link: '/educationResources',
+  },
+  {
+    title: 'Emergency Support & Alerts',
+    image: '/images/alert.png',
+    description: 'Alerts, GPS locators, and AI-powered risk predictions to prevent emergencies.',
+    link: '/glucoseMonitoring',
+  },
+];
