@@ -1,5 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import Header from '@/components/ui/header';
 
 export default function Home() {
   return (
@@ -13,32 +18,13 @@ export default function Home() {
           An AI-powered comprehensive diabetes management app for Type I, Type II, and Prediabetes.
           <br />Simplifying care, predicting risks, and empowering patients.
         </p>
-        <Link href="#main" className="mt-6 inline-block px-6 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition">Explore</Link>
+        <Button asChild className="mt-6">
+          <Link href="#main">Explore</Link>
+        </Button>
       </section>
 
       {/* Navigation */}
-      <header className="bg-gray-100 shadow sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-xl font-semibold">MyDiabetiCare</Link>
-          <nav>
-            <ul className="flex flex-wrap gap-4 text-sm">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/login">Login/Sign Up</Link></li>
-              <li><Link href="/profile">My Profile</Link></li>
-              <li><a href="#features">Features</a></li>
-              <li><Link href="/glucoseMonitoring">Glucose Monitoring</Link></li>
-              <li><Link href="/diet+ExerciseTrack">Diet & Exercise Tracking</Link></li>
-              <li><Link href="https://kyle-muchipi.github.io/Telehealth/index.html" target="_blank">Telehealth</Link></li>
-              <li><Link href="/virtuadoc">VirtuaDoc</Link></li>
-              <li><Link href="/medManagement">Medication Management</Link></li>
-              <li><Link href="/ehrReports">Reports</Link></li>
-              <li><Link href="/educationResources">Education & Support</Link></li>
-              <li><Link href="/ehrReports">EHR Integration</Link></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      
 
       {/* Main Content */}
       <section id="main" className="px-4 max-w-7xl mx-auto">
@@ -61,16 +47,16 @@ export default function Home() {
         {/* Features */}
         <section id="features" className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <article key={feature.title} className="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src={feature.image} alt={feature.title} width={400} height={250} className="w-full h-60 object-cover" />
-              <div className="p-4">
+            <Card key={feature.title} className="overflow-hidden">
+              <img src={feature.image} alt={feature.title} width={400} height={250} className="w-full h-60 object-cover" />
+              <CardContent className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="mb-4">{feature.description}</p>
-                <Link href={feature.link} className="inline-block px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition">
-                  Go
-                </Link>
-              </div>
-            </article>
+                <Button asChild>
+                  <Link href={feature.link}>Go</Link>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
         </section>
       </section>
@@ -82,17 +68,17 @@ export default function Home() {
           <form className="space-y-4">
             <div>
               <label className="block mb-1">Name</label>
-              <input type="text" className="w-full border rounded px-3 py-2" />
+              <Input type="text" />
             </div>
             <div>
               <label className="block mb-1">Email</label>
-              <input type="email" className="w-full border rounded px-3 py-2" />
+              <Input type="email" />
             </div>
             <div>
               <label className="block mb-1">Message</label>
-              <textarea className="w-full border rounded px-3 py-2" rows={4}></textarea>
+              <Textarea rows={4} />
             </div>
-            <button type="submit" className="bg-sky-500 text-white px-6 py-2 rounded hover:bg-sky-600 transition">Send Message</button>
+            <Button type="submit">Send Message</Button>
           </form>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">

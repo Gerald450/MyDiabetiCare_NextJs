@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {auth, provider, db} from '../../lib/firebase';
+import { onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { addDoc, collection, getDocs, onSnapshot, doc, getDoc, setDoc } from "firebase/firestore";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,6 +23,34 @@ export default function Login() {
       alert("Invalid email or password.");
     }
   }
+
+  //authentication
+  const [user, setUser] = useState(null);
+
+  const handleGoogleSignIn = async () => {
+
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const userData = result.user;
+
+        const userRef = doc(db, 'patients', userData.uid);
+        const userSnap = await getDoc(userRef)
+        
+
+        if(!userSnap.exists()){
+            await setDoc(userRef, {
+                ...userSnap.data(),
+                id: userData.uid,
+                name: userData.displayName,
+                email: userData.email,
+            })
+        }
+
+        }catch(err){
+            console.error('Error signing in: ', err)
+        }
+  }
+  
 
   return (
     <div
@@ -52,6 +83,9 @@ export default function Login() {
               Login
             </Button>
           </form>
+          <div className="text-center">
+            <Button onClick={handleGoogleSignIn}>Sign in with Google</Button>
+          </div>
         </CardContent>
       </Card>
     </div>
