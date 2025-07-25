@@ -22,8 +22,6 @@ export default function Home() {
           <Link href="#main">Explore</Link>
         </Button>
       </section>
-
-      {/* Navigation */}
       
 
       {/* Main Content */}
